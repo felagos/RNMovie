@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "eslint src --fix --ext .js,.jsx,.ts,.tsx",
-    "prepare": "husky install"
+    "husky-install": "husky install"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.4",
@@ -60,7 +60,7 @@
   },
   "lint-staged": {
     "./src/*.{ts,tsx}": [
-      "yarn run lint-fix",
+      "yarn run lint",
       "git add"
     ]
   }
