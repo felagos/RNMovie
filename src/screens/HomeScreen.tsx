@@ -5,8 +5,8 @@ import { getMoviesNowPlaying } from '../services/movies.service'
 export const HomeScreen = () => {
 
 	useEffect(() => {
-		getMoviesNowPlaying().then(({ data }) => {
-			console.log(data)
+		getMoviesNowPlaying().then((movies) => {
+			console.log(movies)
 		})
 	}, [])
 
