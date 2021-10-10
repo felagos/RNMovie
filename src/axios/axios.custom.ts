@@ -8,8 +8,4 @@ axios.interceptors.request.use(config => {
 	return config;
 }, (error) => Promise.reject(error));
 
-axios.interceptors.response.use(response => {
-	return response.data;
-}, (error) => Promise.reject(error));
-
 export default axios;
