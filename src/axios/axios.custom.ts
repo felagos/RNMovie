@@ -6,14 +6,10 @@ axios.interceptors.request.use(config => {
 	const url = config.url?.includes("=") ? `${config.url}&${urlApiKey}` : `${config.url}?${urlApiKey}`;
 	config.url = `${BASE_URL_API}/${url}`;
 	return config;
-}, (error) => {
-	return Promise.reject(error);
-});
+}, (error) => Promise.reject(error));
 
 axios.interceptors.response.use(response => {
 	return response.data;
-}, function (error) {
-	return Promise.reject(error);
-});
+}, (error) => Promise.reject(error));
 
 export default axios;
