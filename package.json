@@ -59,8 +59,8 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": [
-      "eslint src --fix",
+    "./src/*.{ts,tsx}": [
+      "yarn run lint-fix",
       "git add"
     ]
   }
