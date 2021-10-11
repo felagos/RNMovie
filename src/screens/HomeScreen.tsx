@@ -1,7 +1,7 @@
 import React from "react";
+import { CarouselMovies } from "../components/CarouselMovies";
 import { Layout } from "../components/Layout";
 import { Loader } from "../components/Loader";
-import { MoviePoster } from "../components/MoviePoster";
 import { useMovies } from "../hooks/useMovies";
 
 export const HomeScreen = () => {
@@ -12,7 +12,7 @@ export const HomeScreen = () => {
 
 	return (
 		<Layout>
-			<MoviePoster movie={movies[0]} />
+			<CarouselMovies movies={movies} />
 		</Layout>
 	);
 };
