@@ -1,6 +1,6 @@
-import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { StackNavigation } from './navigation/StackNavigation'
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { StackNavigation } from "./navigation/StackNavigation";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 export const App = () => {
@@ -12,5 +12,5 @@ export const App = () => {
 				<StackNavigation />
 			</NavigationContainer>
 		</QueryClientProvider>
-	)
-}
+	);
+};

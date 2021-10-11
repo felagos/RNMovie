@@ -15,7 +15,7 @@ const screenOptions: StackNavigationOptions = {
 	cardStyle: {
 		backgroundColor: "white"
 	}
-}
+};
 
 export const StackNavigation = () => {
 	
@@ -26,4 +26,4 @@ export const StackNavigation = () => {
 		</Stack.Navigator>
 	);
 
-}
+};

@@ -1,7 +1,7 @@
-import React from 'react'
-import { Image, StyleSheet, View } from 'react-native'
-import { Movie } from '../models/movie.model'
-import { BASE_URL_IMAGE } from '@env';
+import React from "react";
+import { Image, StyleSheet, View } from "react-native";
+import { Movie } from "../models/movie.model";
+import { BASE_URL_IMAGE } from "@env";
 
 interface Props {
 	movie: Movie
@@ -9,7 +9,7 @@ interface Props {
 
 export const MoviePoster = ({ movie }: Props) => {
 
-	const getImagePoster = (poster: string) => `${BASE_URL_IMAGE}${movie.poster_path}`
+	const getImagePoster = (poster: string) => `${BASE_URL_IMAGE}${movie.poster_path}`;
 
 	return (
 		<View style={styles.container}>
@@ -17,8 +17,8 @@ export const MoviePoster = ({ movie }: Props) => {
 				<Image source={{ uri: getImagePoster(movie.poster_path) }} style={styles.image} />
 			</View>
 		</View>
-	)
-}
+	);
+};
 
 const styles = StyleSheet.create({
 	container: {
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
 		flex: 1,
 		borderRadius: 18
 	}
-})
+});
