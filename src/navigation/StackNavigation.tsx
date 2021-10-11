@@ -2,13 +2,9 @@ import React from "react";
 import { createStackNavigator, StackNavigationOptions } from "@react-navigation/stack";
 import { HomeScreen } from "../screens/HomeScreen";
 import { DetailScreen } from "../screens/DetailScreen";
+import { StackParamList, StackScreens } from "../models/stack.model";
 
-enum StackScreens {
-	HOME = "HomeScreen",
-	DETAIL = "DetailScreen"
-}
-
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<StackParamList>();
 
 const screenOptions: StackNavigationOptions = {
 	headerShown: false,

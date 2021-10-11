@@ -1,7 +1,11 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
-import { Movie } from "../models/movie.model";
 import { BASE_URL_IMAGE } from "@env";
+import { useNavigation } from "@react-navigation/core";
+import { Movie } from "../models/movie.model";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { StackParamList, StackScreens } from "../models/stack.model";
 
 interface Props {
 	movie: Movie,
@@ -9,16 +13,21 @@ interface Props {
 	height?: number;
 }
 
+type StackProps = StackNavigationProp<StackParamList, StackScreens.HOME>;
+
 export const MoviePoster = ({ movie, width = 300, height = 420 }: Props) => {
+	const navigation = useNavigation<StackProps>();
 
 	const getImagePoster = () => `${BASE_URL_IMAGE}${movie.poster_path}`;
 
+	const goToDetail = () => navigation.navigate(StackScreens.DETAIL, movie)
+
 	return (
-		<View style={{ height, width }}>
+		<TouchableOpacity activeOpacity={0.7} style={{ height, width }} onPress={goToDetail}>
 			<View style={styles.imageCover}>
 				<Image source={{ uri: getImagePoster() }} style={styles.image} />
 			</View>
-		</View>
+		</TouchableOpacity>
 	);
 };
 
