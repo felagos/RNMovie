@@ -12,14 +12,12 @@ export const useMovieDetail = (id: number) => {
 
 	const isLoading = results.some(item => item.isLoading);
 	const hasError = results.some(item => item.error);
-	const [detail, credits] = results.map(item => {
-		return item.data;
-	});
+	const [detail, credits] = results.map(item => item.data);
 
 	return {
 		detail: detail as MovieDetail,
 		credits: credits as MovieCredits,
-		isLoading, 
-		hasError 
+		isLoading,
+		hasError
 	};
 };
