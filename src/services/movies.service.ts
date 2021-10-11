@@ -1,7 +1,19 @@
 import axios from "../axios/axios.custom";
 import { ResponseMovie } from "../models/movie.model";
 
+const BASE_URL = "movie"
+
 export const getMoviesNowPlaying = async () => {
-	const { data } = await axios.get<ResponseMovie>("movie/now_playing");
+	const { data } = await axios.get<ResponseMovie>(`${BASE_URL}/now_playing`);
 	return data;
 };
+
+export const getPopularMovies = async () => {
+	const { data } = await axios.get<ResponseMovie>(`${BASE_URL}/popular`);
+	return data;
+}
+
+export const getUpcomingMopvies = async () => {
+	const { data } = await axios.get<ResponseMovie>(`${BASE_URL}/upcoming`);
+	return data;
+}

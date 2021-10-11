@@ -7,15 +7,15 @@ import { useMovies } from "../hooks/useMovies";
 
 export const HomeScreen = () => {
 
-	const { movies, isLoading } = useMovies();
+	const { nowePlaying, popular, upcoming, isLoading } = useMovies();
 
 	if (isLoading) return <Loader />;
 
 	return (
 		<Layout>
-			<CarouselMovies movies={movies} />
-			<FlatListMovies title="Popular Movies" movies={movies} horizontal />
-			<FlatListMovies title="In Theaters" movies={movies} horizontal />
+			<CarouselMovies movies={nowePlaying} />
+			<FlatListMovies title="Popular Movies" movies={popular} horizontal />
+			<FlatListMovies title="Upcoming Movies" movies={upcoming} horizontal />
 		</Layout>
 	);
 };
