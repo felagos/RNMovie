@@ -17,3 +17,8 @@ export const getUpcomingMopvies = async () => {
 	const { data } = await axios.get<ResponseMovie>(`${BASE_URL}/upcoming`);
 	return data;
 }
+
+export const getTopRatedMovies = async () => {
+	const { data } = await axios.get<ResponseMovie>(`${BASE_URL}/top_rated`);
+	return data;
+}

@@ -1,12 +1,13 @@
 import { useQueries } from "react-query";
 import { ResponseMovie } from "../models/movie.model";
-import { getMoviesNowPlaying, getPopularMovies, getUpcomingMopvies } from "../services/movies.service";
+import { getMoviesNowPlaying, getPopularMovies, getTopRatedMovies, getUpcomingMopvies } from "../services/movies.service";
 
 export const useMovies = () => {
 	const results = useQueries([
 		{ queryKey: "fetchNowPlaying", queryFn: getMoviesNowPlaying },
 		{ queryKey: "fetchPpular", queryFn: getPopularMovies },
 		{ queryKey: "fetchUpcoming", queryFn: getUpcomingMopvies },
+		{ queryKey: "fetchTopRated", queryFn: getTopRatedMovies },
 	])
 
 	const isLoading = results.some(item => item.isLoading)
@@ -16,8 +17,8 @@ export const useMovies = () => {
 		return data?.results ?? [];
 	})
 
-	const [nowePlaying, popular, upcoming] = responses;
+	const [nowePlaying, popular, upcoming, topRated] = responses;
 
-	return { nowePlaying, popular, upcoming, isLoading, hasError };
+	return { nowePlaying, popular, upcoming, topRated, isLoading, hasError };
 
 };
