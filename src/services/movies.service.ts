@@ -1,4 +1,4 @@
-import axios from "../axios/axios.custom";
+import axios from "../axios/axios.interceptor";
 import { ResponseMovie } from "../models/movie.model";
 
 const BASE_URL = "movie"
