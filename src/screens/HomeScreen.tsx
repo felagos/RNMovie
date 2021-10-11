@@ -1,14 +1,12 @@
 import React from "react";
-import { useQuery } from "react-query";
 import { Layout } from "../components/Layout";
 import { Loader } from "../components/Loader";
 import { MoviePoster } from "../components/MoviePoster";
-import { getMoviesNowPlaying } from "../services/movies.service";
+import { useMovies } from "../hooks/useMovies";
 
 export const HomeScreen = () => {
 
-	const { data, isLoading } = useQuery("moviesNowPlaying", getMoviesNowPlaying);
-	const movies = data?.results ?? [];
+	const { movies, isLoading } = useMovies();
 
 	if (isLoading) return <Loader />;
 
