@@ -4,6 +4,8 @@ import { StackParamList, StackScreens } from "../models/stack.model";
 import { RouteProp, useRoute } from "@react-navigation/core";
 import { getImagePoster } from "../utils/utils";
 import { ScrollView } from "react-native-gesture-handler";
+
+
 type StackProps = RouteProp<StackParamList, StackScreens.DETAIL>;
 
 export const DetailScreen = () => {
@@ -12,14 +14,21 @@ export const DetailScreen = () => {
 	return (
 		<ScrollView>
 			<View style={styles.imageIontainer}>
+
 				<View style={styles.imageBorder}>
 					<Image source={{ uri: getImagePoster(movie.poster_path) }} style={styles.posterImage} />
 				</View>
+
 			</View>
-			<View style={styles.titlesContainer}>
+
+			<View style={styles.margenContainer}>
 				<Text style={styles.subtitle}>{movie.original_title}</Text>
 				<Text style={styles.title}>{movie.title}</Text>
 			</View>
+
+			<View style={styles.margenContainer}>
+			</View>
+
 		</ScrollView>
 	);
 };
@@ -40,7 +49,7 @@ const styles = StyleSheet.create({
 	posterImage: {
 		flex: 1
 	},
-	titlesContainer: {
+	margenContainer: {
 		marginHorizontal: 20,
 		marginTop: 20
 	},
