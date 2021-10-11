@@ -8,10 +8,13 @@ interface Props {
 }
 
 export const MoviePoster = ({ movie }: Props) => {
+
+	const getImagePoster = (poster: string) => `${BASE_URL_IMAGE}${movie.poster_path}`
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.imageCover}>
-				<Image source={{ uri: `${BASE_URL_IMAGE}${movie.poster_path}` }} style={styles.image} />
+				<Image source={{ uri: getImagePoster(movie.poster_path) }} style={styles.image} />
 			</View>
 		</View>
 	)
