@@ -18,7 +18,7 @@ type StackProps = StackNavigationProp<StackParamList, StackScreens.HOME>;
 export const MoviePoster = ({ movie, width = 300, height = 420 }: Props) => {
 	const navigation = useNavigation<StackProps>();
 
-	const goToDetail = () => navigation.navigate(StackScreens.DETAIL, movie)
+	const goToDetail = () => navigation.navigate(StackScreens.DETAIL, movie);
 
 	return (
 		<TouchableOpacity activeOpacity={0.7} style={{ height, width }} onPress={goToDetail}>

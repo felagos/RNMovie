@@ -4,12 +4,14 @@ import { StackParamList, StackScreens } from "../models/stack.model";
 import { RouteProp, useRoute } from "@react-navigation/core";
 import { getImagePoster } from "../utils/utils";
 import { ScrollView } from "react-native-gesture-handler";
+import { useMovieDetail } from "../hooks/useMovieDetail";
 
 
 type StackProps = RouteProp<StackParamList, StackScreens.DETAIL>;
 
 export const DetailScreen = () => {
 	const { params: movie } = useRoute<StackProps>();
+	const { detail, credits, isLoading } = useMovieDetail(movie.id);
 
 	return (
 		<ScrollView>
@@ -35,8 +37,8 @@ export const DetailScreen = () => {
 
 const styles = StyleSheet.create({
 	imageIontainer: {
-		width: '100%',
-		height: Dimensions.get('screen').height * 0.7,
+		width: "100%",
+		height: Dimensions.get("screen").height * 0.7,
 		shadowColor: "#000",
 		shadowOffset: {
 			width: 0,
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		fontSize: 20,
-		fontWeight: 'bold',
+		fontWeight: "bold",
 		color: "#000000"
 	},
 	subtitle: {
@@ -68,4 +70,4 @@ const styles = StyleSheet.create({
 		borderBottomLeftRadius: 25,
 		borderBottomRightRadius: 25,
 	}
-})
+});
