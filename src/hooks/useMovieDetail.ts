@@ -7,7 +7,7 @@ export const useMovieDetail = (id: number) => {
 
 	const results = useQueries([
 		{ queryKey: ["fetchDetail", id], queryFn: () => getMovieDetail(id) },
-		{ queryKey: "fetchCredits", queryFn: () => getMovieCredits(id) }
+		{ queryKey: ["fetchCredits", id], queryFn: () => getMovieCredits(id) }
 	]);
 
 	const isLoading = results.some(item => item.isLoading);
