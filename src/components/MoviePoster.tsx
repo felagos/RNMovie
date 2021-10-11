@@ -4,27 +4,25 @@ import { Movie } from "../models/movie.model";
 import { BASE_URL_IMAGE } from "@env";
 
 interface Props {
-	movie: Movie
+	movie: Movie,
+	width?: number;
+	height?: number;
 }
 
-export const MoviePoster = ({ movie }: Props) => {
+export const MoviePoster = ({ movie, width = 300, height = 420 }: Props) => {
 
-	const getImagePoster = (poster: string) => `${BASE_URL_IMAGE}${movie.poster_path}`;
+	const getImagePoster = () => `${BASE_URL_IMAGE}${movie.poster_path}`;
 
 	return (
-		<View style={styles.container}>
+		<View style={{ height, width }}>
 			<View style={styles.imageCover}>
-				<Image source={{ uri: getImagePoster(movie.poster_path) }} style={styles.image} />
+				<Image source={{ uri: getImagePoster() }} style={styles.image} />
 			</View>
 		</View>
 	);
 };
 
 const styles = StyleSheet.create({
-	container: {
-		width: 300,
-		height: 420
-	},
 	imageCover: {
 		flex: 1,
 		shadowColor: "#000",

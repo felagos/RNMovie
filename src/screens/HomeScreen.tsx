@@ -1,5 +1,6 @@
 import React from "react";
 import { CarouselMovies } from "../components/CarouselMovies";
+import { FlatListMovies } from "../components/FlatListMovies";
 import { Layout } from "../components/Layout";
 import { Loader } from "../components/Loader";
 import { useMovies } from "../hooks/useMovies";
@@ -13,6 +14,7 @@ export const HomeScreen = () => {
 	return (
 		<Layout>
 			<CarouselMovies movies={movies} />
+			<FlatListMovies movies={movies} horizontal />
 		</Layout>
 	);
 };
