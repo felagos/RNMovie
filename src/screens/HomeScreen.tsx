@@ -14,7 +14,7 @@ export const HomeScreen = () => {
 	return (
 		<Layout>
 			<CarouselMovies movies={movies} />
-			<FlatListMovies movies={movies} horizontal />
+			<FlatListMovies title="Popular Movies" movies={movies} horizontal />
 		</Layout>
 	);
 };

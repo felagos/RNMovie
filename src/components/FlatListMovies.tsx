@@ -1,15 +1,16 @@
-import React from 'react'
-import { View, StyleSheet, FlatList, Text } from 'react-native'
-import { ItemList } from '../models/item-list.model'
-import { Movie } from '../models/movie.model'
-import { MoviePoster } from './MoviePoster'
+import React from "react";
+import { View, StyleSheet, FlatList, Text } from "react-native";
+import { ItemList } from "../models/item-list.model";
+import { Movie } from "../models/movie.model";
+import { MoviePoster } from "./MoviePoster";
 
 interface Props {
+	title: string;
 	movies: Movie[],
 	horizontal?: boolean
 }
 
-export const FlatListMovies = ({ movies, horizontal = false }: Props) => {
+export const FlatListMovies = ({ title, movies, horizontal = false }: Props) => {
 
 	const renderItem = ({ item }: ItemList) => (
 		<View style={styles.imagePoster}>
@@ -21,15 +22,15 @@ export const FlatListMovies = ({ movies, horizontal = false }: Props) => {
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Popular Movies</Text>
+			<Text style={styles.title}>{title}</Text>
 			<FlatList data={movies}
 				renderItem={renderItem}
 				keyExtractor={keyGenerator}
 				horizontal={horizontal}
 				showsHorizontalScrollIndicator={false} />
 		</View>
-	)
-}
+	);
+};
 
 const styles = StyleSheet.create({
 	container: {
@@ -42,4 +43,4 @@ const styles = StyleSheet.create({
 	imagePoster: {
 		marginHorizontal: 5
 	}
-})
+});
