@@ -24,7 +24,7 @@ export const getTopRatedMovies = async () => {
 	return data;
 }
 
-export const getDetailMovie = async (id: number) => {
+export const getMovieDetail = async (id: number) => {
 	const { data } = await axios.get<MovieDetail>(`${BASE_URL}/${id}`);
 	return data;
 }
