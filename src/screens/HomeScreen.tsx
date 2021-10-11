@@ -15,6 +15,7 @@ export const HomeScreen = () => {
 		<Layout>
 			<CarouselMovies movies={movies} />
 			<FlatListMovies title="Popular Movies" movies={movies} horizontal />
+			<FlatListMovies title="In Theaters" movies={movies} horizontal />
 		</Layout>
 	);
 };

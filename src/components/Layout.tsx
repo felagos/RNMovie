@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 interface Props {
@@ -11,7 +12,9 @@ export const Layout = ({ children }: Props) => {
 
 	return (
 		<View style={[styles.container, { marginTop: top + 20 }]}>
-			{children}
+			<ScrollView>
+				{children}
+			</ScrollView>
 		</View>
 	);
 };

@@ -34,11 +34,14 @@ export const FlatListMovies = ({ title, movies, horizontal = false }: Props) => 
 
 const styles = StyleSheet.create({
 	container: {
-		height: 230
+		height: 260,
+		marginTop: 10
 	},
 	title: {
 		fontSize: 20,
-		fontWeight: "bold"
+		fontWeight: "bold",
+		marginLeft: 10,
+		marginBottom: 5
 	},
 	imagePoster: {
 		marginHorizontal: 5
