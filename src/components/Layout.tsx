@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 interface Props {
@@ -10,8 +10,14 @@ export const Layout = ({ children }: Props) => {
 	const { top } = useSafeAreaInsets();
 
 	return (
-		<View style={{ marginTop: top + 20 }}>
+		<View style={[styles.container, { marginTop: top + 20 }]}>
 			{children}
 		</View>
 	);
 };
+
+const styles = StyleSheet.create({
+	container: {
+		padding: 10
+	}
+})
