@@ -1,10 +1,11 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
+import { View, Text, Image, StyleSheet, Dimensions, ActivityIndicator } from "react-native";
 import { StackParamList, StackScreens } from "../models/stack.model";
 import { RouteProp, useRoute } from "@react-navigation/core";
 import { getImagePoster } from "../utils/utils";
 import { ScrollView } from "react-native-gesture-handler";
 import { useMovieDetail } from "../hooks/useMovieDetail";
+import { MovieDetails } from "../components/MovieDetails";
 
 
 type StackProps = RouteProp<StackParamList, StackScreens.DETAIL>;
@@ -12,6 +13,11 @@ type StackProps = RouteProp<StackParamList, StackScreens.DETAIL>;
 export const DetailScreen = () => {
 	const { params: movie } = useRoute<StackProps>();
 	const { detail, credits, isLoading } = useMovieDetail(movie.id);
+
+	const renderMovieDetail = () => {
+		if (isLoading) return <ActivityIndicator size="large" color="gray" style={styles.activityIndicator} />
+		return <MovieDetails detail={detail} cast={credits.cast} />
+	}
 
 	return (
 		<ScrollView>
@@ -29,6 +35,7 @@ export const DetailScreen = () => {
 			</View>
 
 			<View style={styles.margenContainer}>
+				{renderMovieDetail()}
 			</View>
 
 		</ScrollView>
@@ -69,5 +76,8 @@ const styles = StyleSheet.create({
 		overflow: "hidden",
 		borderBottomLeftRadius: 25,
 		borderBottomRightRadius: 25,
+	},
+	activityIndicator: {
+		marginTop: 20,
 	}
 });
