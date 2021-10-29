@@ -12,11 +12,11 @@ export const useMovies = () => {
 
 	const isLoading = results.some(item => item.isLoading)
 	const hasError = results.some(item => item.error)
-	const [nowePlaying, popular, upcoming, topRated] = results.map(item => {
+	const [nowPlaying, popular, upcoming, topRated] = results.map(item => {
 		const data = item.data as ResponseMovie
 		return data?.results ?? [];
 	})
 
-	return { nowePlaying, popular, upcoming, topRated, isLoading, hasError };
+	return { nowPlaying, popular, upcoming, topRated, isLoading, hasError };
 
 };
