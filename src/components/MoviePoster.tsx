@@ -35,11 +35,11 @@ const styles = StyleSheet.create({
 		shadowColor: "#000",
 		shadowOffset: {
 			width: 0,
-			height: 2,
+			height: 10,
 		},
 		shadowOpacity: 0.24,
-		shadowRadius: 3.84,
-		elevation: 10
+		shadowRadius: 7,
+		elevation: 9
 	},
 	image: {
 		flex: 1,

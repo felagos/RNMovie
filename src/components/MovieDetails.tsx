@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { Cast } from "../models/movie-credits.model";
 import { MovieDetail } from "../models/movie-detail.model";
+import { formatCurrency } from "../utils/currency.util";
+import { CastItem } from "./CastItem";
 
 interface Props {
 	detail: MovieDetail;
@@ -16,16 +18,32 @@ export const MovieDetails = ({ detail, cast }: Props) => {
 			- {detail.genres.map(genre => genre.name).join(", ")}
 		</Text>
 	)
-	
+
 	return (
 		<>
 			<View style={styles.container}>
 				<View style={styles.rowContainer}>
 					<Icon name="star-outline" color="grey" size={16} />
-					<Text>{detail.vote_average}</Text>
+					<Text style={styles.stars}>{detail.vote_average}</Text>
 					{renderGenres()}
 				</View>
 			</View>
+
+			<View style={styles.section_detail}>
+				<Text style={styles.title}>Historia</Text>
+				<Text style={styles.detail}>{detail.overview}</Text>
+			</View>
+
+			<View style={styles.section_detail}>
+				<Text style={styles.title}>Presupuesto</Text>
+				<Text style={styles.detail}>{formatCurrency(detail.budget)}</Text>
+			</View>
+
+			<View style={styles.section_detail}>
+				<Text style={styles.title}>Actores</Text>
+				<CastItem cast={cast[0]} />
+			</View>
+
 		</>
 	);
 }
@@ -39,5 +57,19 @@ const styles = StyleSheet.create({
 	},
 	genreContainer: {
 		marginLeft: 5
+	},
+	stars: {
+		marginLeft: 5
+	},
+	section_detail: {
+		marginTop: 10
+	},
+	title: {
+		fontSize: 23,
+		fontWeight: "bold",
+	},
+	detail: {
+		marginTop: 10,
+		fontSize: 16,
 	}
 })
