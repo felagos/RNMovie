@@ -7,10 +7,7 @@ import { StackParamList, StackScreens } from "../models/stack.model";
 const Stack = createStackNavigator<StackParamList>();
 
 const screenOptions: StackNavigationOptions = {
-	headerShown: false,
-	cardStyle: {
-		backgroundColor: "white"
-	}
+	headerShown: false
 };
 
 export const StackNavigation = () => {

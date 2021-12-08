@@ -1,16 +1,17 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, Dimensions, ActivityIndicator } from "react-native";
 import { StackParamList, StackScreens } from "../models/stack.model";
-import { RouteProp, useRoute } from "@react-navigation/core";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/core";
 import { getImagePoster } from "../utils/utils";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { useMovieDetail } from "../hooks/useMovieDetail";
 import { MovieDetails } from "../components/MovieDetails";
-
+import Icon from "react-native-vector-icons/Ionicons";
 
 type StackProps = RouteProp<StackParamList, StackScreens.DETAIL>;
 
 export const DetailScreen = () => {
+	const navigation = useNavigation();
 	const { params: movie } = useRoute<StackProps>();
 	const { detail, credits, isLoading } = useMovieDetail(movie.id);
 
@@ -21,6 +22,13 @@ export const DetailScreen = () => {
 
 	return (
 		<ScrollView>
+
+			<View style={styles.btnBack}>
+				<TouchableOpacity onPress={() => navigation.goBack()}>
+					<Icon name="arrow-back-outline" size={60} color="white" />
+				</TouchableOpacity>
+			</View>
+
 			<View style={styles.imageIontainer}>
 
 				<View style={styles.imageBorder}>
@@ -43,6 +51,13 @@ export const DetailScreen = () => {
 };
 
 const styles = StyleSheet.create({
+	btnBack: {
+		position: "absolute",
+		zIndex: 9,
+		elevation: 9,
+		top: 10,
+		left: 10,
+	},
 	imageIontainer: {
 		width: "100%",
 		height: Dimensions.get("screen").height * 0.7,
@@ -60,7 +75,7 @@ const styles = StyleSheet.create({
 	},
 	margenContainer: {
 		marginHorizontal: 20,
-		marginTop: 20
+		marginTop: 20,
 	},
 	title: {
 		fontSize: 20,

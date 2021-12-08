@@ -11,8 +11,11 @@ export const CastItem = ({ cast }: Props) => {
 
 	return (
 		<View style={styles.container}>
-			<Image style={styles.poster}
-				source={{ uri: getImagePoster(cast.profile_path) }} />
+			{
+				cast.profile_path && (
+					<Image style={styles.poster} source={{ uri: getImagePoster(cast.profile_path) }} />
+				)
+			}
 			<View style={styles.actor_info}>
 				<Text style={styles.actor_name}>{cast.name}</Text>
 				<Text style={styles.actor_character}>{cast.character}</Text>
@@ -34,7 +37,10 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.24,
 		shadowRadius: 7,
-		elevation: 9
+		elevation: 9,
+		marginRight: 30,
+		paddingRight: 15,
+		paddingTop: 5,
 	},
 	poster: {
 		width: 50,
@@ -51,5 +57,6 @@ const styles = StyleSheet.create({
 	},
 	actor_info: {
 		marginLeft: 10,
+		marginTop: 4
 	}
 });

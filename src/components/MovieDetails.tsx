@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { Cast } from "../models/movie-credits.model";
 import { MovieDetail } from "../models/movie-detail.model";
 import { formatCurrency } from "../utils/currency.util";
-import { CastItem } from "./CastItem";
+import { ListCast } from "./ListCast";
 
 interface Props {
 	detail: MovieDetail;
@@ -19,8 +19,9 @@ export const MovieDetails = ({ detail, cast }: Props) => {
 		</Text>
 	)
 
+
 	return (
-		<>
+		<View>
 			<View style={styles.container}>
 				<View style={styles.rowContainer}>
 					<Icon name="star-outline" color="grey" size={16} />
@@ -41,10 +42,10 @@ export const MovieDetails = ({ detail, cast }: Props) => {
 
 			<View style={styles.section_detail}>
 				<Text style={styles.title}>Actores</Text>
-				<CastItem cast={cast[0]} />
+				<ListCast cast={cast} />
 			</View>
 
-		</>
+		</View>
 	);
 }
 
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
 		marginLeft: 5
 	},
 	section_detail: {
-		marginTop: 10
+		marginTop: 10,
 	},
 	title: {
 		fontSize: 23,
