@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { Cast } from "../models/movie-credits.model";
-import { getImagePoster } from "../utils/utils";
+import { getImagePoster } from "../utils/image.util";
 
 interface Props {
 	cast: Cast;

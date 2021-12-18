@@ -5,7 +5,7 @@ import { Movie } from "../models/movie.model";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { StackParamList, StackScreens } from "../models/stack.model";
-import { getImagePoster } from "../utils/utils";
+import { getImagePoster } from "../utils/image.util";
 
 interface Props {
 	movie: Movie,

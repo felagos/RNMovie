@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, StyleSheet, Dimensions, ActivityIndicator } from "react-native";
 import { StackParamList, StackScreens } from "../models/stack.model";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/core";
-import { getImagePoster } from "../utils/utils";
+import { getImagePoster } from "../utils/image.util";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { useMovieDetail } from "../hooks/useMovieDetail";
 import { MovieDetails } from "../components/MovieDetails";

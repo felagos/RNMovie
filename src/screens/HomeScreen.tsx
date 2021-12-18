@@ -5,8 +5,7 @@ import { GradientView } from "../components/GradientView";
 import { Layout } from "../components/Layout";
 import { Loader } from "../components/Loader";
 import { useMovies } from "../hooks/useMovies";
-import { getImagePoster } from "../utils/utils";
-import ImageColors from 'react-native-image-colors'
+import { getColors } from "../utils/image.util";
 
 export const HomeScreen = () => {
 
@@ -14,11 +13,7 @@ export const HomeScreen = () => {
 
 	const handleChangeCarrousel = async (index: number) => {
 		const movie = nowPlaying[index];
-		const img = getImagePoster(movie.poster_path);
-
-		const result = await ImageColors.getColors(img, {})
-
-		console.log(result)
+		const colors = getColors(movie.poster_path);
 	}
 
 	if (isLoading) return <Loader />;
