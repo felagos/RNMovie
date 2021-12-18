@@ -24,7 +24,7 @@ export const FadeScreen = () => {
 				marginBottom: 20
 			}} />
 
-		<Button title="Fade In" onPress={fadeIn} />
+		<Button title="Fade In" onPress={() => fadeIn()} />
 		<Button title="Fade Out" onPress={fadeOut} />
 
 		</View>
