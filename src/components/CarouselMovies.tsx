@@ -6,17 +6,23 @@ import { Movie } from "../models/movie.model";
 import { MoviePoster } from "./MoviePoster";
 
 interface Props {
-	movies: Movie[]
+	movies: Movie[],
+	handleChange: (index: number) => void
 }
 
-export const CarouselMovies = ({ movies }: Props) => {
+export const CarouselMovies = ({ movies, handleChange }: Props) => {
 	const { width } = useWindowDimensions();
 
 	const renderItem = ({ item }: ItemList) => <MoviePoster movie={item} />;
 
 	return (
 		<View style={styles.container}>
-			<Carousel data={movies} renderItem={renderItem} sliderWidth={width} itemWidth={300} />
+			<Carousel data={movies}
+				renderItem={renderItem}
+				sliderWidth={width}
+				itemWidth={300}
+				onSnapToItem={handleChange}
+			/>
 		</View>
 	);
 };
